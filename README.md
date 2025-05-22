@@ -8,5 +8,8 @@ A simple fullscreen wake lock clock that runs in your browser made with ScalaJS.
 ```
 sudo apt install node npm
 ```
-* run inside sbt `fullLinkJS`
-
+* During development and testing:
+  * run inside sbt `fullLinkJS`
+  * open `index-dev.html` in your browser
+* When ready to publish:
+  * copy the `index.html` and `main.js` to the server
