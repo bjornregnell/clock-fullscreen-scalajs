@@ -37,9 +37,10 @@ def updateTime(): Unit =
 
 
 def setFontSize(): Unit = 
-  val minDim = math.min(dom.window.innerWidth, dom.window.innerHeight)
-  val fontSize = (minDim * 0.2).toInt
-  document.getElementById("clock").setAttribute("style", s"font-size: ${fontSize}px;")
+  // val minDim = math.min(dom.window.innerWidth, dom.window.innerHeight)
+  // val fontSize = (minDim * 0.2).toInt
+  //document.getElementById("clock").setAttribute("style", s"font-size: ${fontSize}px;")
+  document.getElementById("clock").setAttribute("style", s"font-size: 15vw ;")
 
 
 def applyStyles(): Unit = 
