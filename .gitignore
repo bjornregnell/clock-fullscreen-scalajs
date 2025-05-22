@@ -1,4 +1,5 @@
 target
+.scala-build
 **/.bloop
 **/.bsp
 **/.metals
