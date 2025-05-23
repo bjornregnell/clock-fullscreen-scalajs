@@ -1,7 +1,7 @@
 enablePlugins(ScalaJSPlugin)
 
 name := "clock"
-scalaVersion := "3.6.4"
+scalaVersion := "3.7.0"
 
 scalaJSUseMainModuleInitializer := true 
 
