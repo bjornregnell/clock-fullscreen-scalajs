@@ -14,13 +14,13 @@ def setupUI(): Unit =
   setInterval(1000):
     updateTime()
 
-  document.body.addEventListener("click", (_: dom.Event) => {
+  document.body.addEventListener("click", (e: dom.Event) => {
     if dom.document.fullscreenElement == null 
     then dom.document.documentElement.requestFullscreen()
     else dom.document.exitFullscreen()
   })
 
-  dom.window.addEventListener("resize", (_: dom.Event) => {
+  dom.window.addEventListener("resize", (e: dom.Event) => {
     setFontSize()
   })
 
@@ -29,7 +29,7 @@ end setupUI
 
 def updateTime(): Unit = 
   val now = new js.Date()
-  val hours = f"${now.getHours().toInt}%02d"
+  val hours   = f"${now.getHours().toInt}%02d"
   val minutes = f"${now.getMinutes().toInt}%02d"
   val seconds = f"${now.getSeconds().toInt}%02d"
   val timeStr = s"$hours:$minutes:$seconds"
