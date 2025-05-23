@@ -1,6 +1,8 @@
 # clock-fullscreen-scalajs
 A simple fullscreen wake lock clock that runs in your browser made with ScalaJS.
 
+You can watch it live here: [bjornregnell.se/clock](https://bjornregnell.se/clock)
+
 ## How to build on Linux/Ubuntu
 
 * Install [Scala](https://scala-lang.org/download/) and [sbt](https://www.scala-sbt.org/)
