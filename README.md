@@ -1,11 +1,9 @@
 # clock-fullscreen-scalajs
 
-* A simple fullscreen wake lock clock that runs in your browser.
-
-* Click to make it fullscreen. It has a wake lock so that screen savers don't prevent the clock from ticking.
-
-* Made with ScalaJS.
-
+* A simple fullscreen clock that runs in your browser.
+* Click to make it fullscreen. 
+* It has a wake lock so that screen savers don't prevent the clock from ticking.
+* Made with awesome [ScalaJS](https://www.scala-js.org/).
 * This app is feature complete.
 
 You can watch it live here: [bjornregnell.se/clock](https://bjornregnell.se/clock)
