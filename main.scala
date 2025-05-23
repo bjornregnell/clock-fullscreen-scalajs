@@ -1,7 +1,9 @@
 import org.scalajs.dom
 import org.scalajs.dom.document
+import org.scalajs.dom.console
 import scala.scalajs.js
 import scala.scalajs.js.timers._
+import scala.scalajs.js.annotation.JSGlobal
 
 @main def main(): Unit = document.addEventListener("DOMContentLoaded", (e: dom.Event) => setupUI())
   
@@ -25,6 +27,12 @@ def setupUI(): Unit =
   })
 
   setFontSize()
+
+  document.addEventListener("visibilitychange", (e: dom.Event) => {
+    if document.visibilityState.equals("visible") then
+      WakeLock.request()
+  })
+  WakeLock.request()
 end setupUI
 
 def updateTime(): Unit = 
@@ -67,3 +75,35 @@ def applyStyles(): Unit =
     """
   document.head.appendChild(style)
 
+
+object WakeLock:
+
+  def request(): Unit =
+    val wakeLock = DOMGlobals.window.navigator.wakeLock
+    if wakeLock.isDefined then
+      wakeLock.get.request("screen").`then`((wakeLock: WakeLockSentinel) => {
+        console.log("Wake lock active")
+        wakeLock.addEventListener("release", (e: dom.Event) => console.log("Wake lock was released"))
+      }, (reason: Any) => {
+        console.error("Failed to acquire wake lock")
+      })
+
+  object DOMGlobals:
+    @js.native
+    @JSGlobal("window")
+    val window: Window = js.native
+
+  @js.native
+  trait Window extends js.Object:
+    val navigator: Navigator = js.native
+
+  @js.native
+  trait Navigator extends js.Object:
+    val wakeLock: js.UndefOr[WakeLock] = js.native
+
+  @js.native
+  trait WakeLock extends js.Object:
+    def request(`type`: String): js.Promise[WakeLockSentinel] = js.native
+
+  @js.native
+  trait WakeLockSentinel extends dom.EventTarget
