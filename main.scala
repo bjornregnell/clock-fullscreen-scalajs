@@ -42,7 +42,6 @@ def setFontSize(): Unit =
   //document.getElementById("clock").setAttribute("style", s"font-size: ${fontSize}px;")
   document.getElementById("clock").setAttribute("style", s"font-size: 15vw ;")
 
-
 def applyStyles(): Unit = 
   val style = document.createElement("style")
   style.innerHTML =
