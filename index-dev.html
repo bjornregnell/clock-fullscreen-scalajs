@@ -7,6 +7,34 @@
   </head>
   <body>
     <script type="text/javascript" src="./target/js-dev/main.js"></script>
+    <script>
+      let wakeLock = null;
+
+      async function requestWakeLock() {
+        try {
+          if ('wakeLock' in navigator) {
+            wakeLock = await navigator.wakeLock.request('screen');
+            console.log('Wake lock active');
+
+            wakeLock.addEventListener('release', () => {
+              console.log('Wake lock was released');
+            });
+          }
+        } catch (err) {
+          console.error(`${err.name}, ${err.message}`);
+        }
+      }
+
+      // Re-request on visibility change (some browsers release it when tab is hidden)
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') {
+          requestWakeLock();
+        }
+      });
+
+      // Request on load
+      requestWakeLock();
+    </script>
   </body>
 </html>
 
