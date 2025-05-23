@@ -16,5 +16,6 @@ Compile / fullLinkJS := {
   val sourceFile = baseDirectory.value / "target" / "js" / "main.js"
   val targetFile = baseDirectory.value / "main.js"
   IO.copyFile(sourceFile, targetFile)
+  println(s"Copy from:\n$sourceFile\nto:\n$targetFile")
   report
 }
