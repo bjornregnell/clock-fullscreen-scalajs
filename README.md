@@ -4,7 +4,7 @@
 * Nice when you are lecturing and want to keep track of the time.
 * You can watch it live here: [bjornregnell.se/clock](https://bjornregnell.se/clock)
 * Click to make it fullscreen. 
-* It has a wake lock so that screen savers don't prevent the clock from being visible.
+* It has a wake lock so that screen savers don't prevent the clock from being visible. So don't leave your phone unattended when the clock is in fullscreen mode...
 * Made with awesome [ScalaJS](https://www.scala-js.org/).
 * This app is feature complete.
 
