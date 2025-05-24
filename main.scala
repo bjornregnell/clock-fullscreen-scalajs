@@ -77,7 +77,7 @@ def applyStyles(): Unit =
 
 
 object WakeLock:
-
+  /** Request a wake lock to prevent screen locking. Log in console if successful or not. */
   def request(): Unit =
     val wakeLock = DOMGlobals.window.navigator.wakeLock
     if wakeLock.isDefined then
@@ -87,6 +87,9 @@ object WakeLock:
       }, (reason: Any) => {
         console.error("Failed to acquire wake lock")
       })
+    else 
+      console.log("Wake lock is undefined")
+
 
   object DOMGlobals:
     @js.native
